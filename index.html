@@ -11,31 +11,37 @@
 
         body {
             font-family: arial, sans-serif;
-        }
-
-        canvas {
-            background: #eee;
-            display: block;
-            margin: 0 auto;
+            background-color: #0f0f0f;
+            color: #e0e0e0;
         }
 
         #battle-log {
-            width: 800px;
-            border: 1px solid black;
-            margin: 0 auto;
+            width: 700px;
+            border: 1px solid #f0f0f0;
+            margin: 10px;
+            padding: 10px;
             box-sizing: border-box;
+            display: inline-block;
+            float: left;
         }
 
         #battle-log h1 {
-            margin: 10px;
+            margin: 0 0 10px 0;
+        }
+        
+        #battlefield {
+            background: #000000;
+            display: inline-block;
+            margin: 10px 0 10px 20px;
+            float: left;
         }
     </style>
 </head>
 <body>
-    <!--<canvas id="myCanvas" width="480" height="320"></canvas>-->
     <div id="battle-log">
         <h1>Battle Log</h1>
     </div>
+    <canvas id="battlefield"></canvas>
     <script src="lib/require.js" data-main="main"></script>
 </body>
 </html>

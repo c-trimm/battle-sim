@@ -4,7 +4,7 @@ require.config({
     }
 });
 
-require(['module/engine', 'module/troopList', 'module/troopGenerator'], function(engine, troopList, troopGenerator) {
+require(['module/engine', 'module/troopList', 'module/troopGenerator', 'module/map'], function(engine, troopList, troopGenerator, map) {
     troopList.add(troopGenerator({
         'name' : 'Gilthunder',
         'team' : 0,
@@ -26,4 +26,7 @@ require(['module/engine', 'module/troopList', 'module/troopGenerator'], function
     }
 
     engine.log('<b>End of Batttle<b/>');
+    
+    map.init();
+    map.simulate();
 });
