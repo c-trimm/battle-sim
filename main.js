@@ -1,23 +1,36 @@
 require.config({
     paths: {
-        "module": "lib/modules"
+        module: "lib/modules",
+        tactics: "lib/tactics",
+        underscore: "lib/underscore"
+    },
+    shim: {
+        underscore: {
+            exports: "_"
+        }
     }
 });
 
 require(['module/engine', 'module/troopList', 'module/troopGenerator', 'module/map'], function(engine, troopList, troopGenerator, map) {
-    troopList.add(troopGenerator({
+    var gil = troopList.add(troopGenerator({
         'name' : 'Gilthunder',
         'team' : 0,
         'x'    : 0,
-        'y'    : 0
+        'y'    : 0,
+        'color': 'red'
     }));
 
-    troopList.add(troopGenerator({
+    var mel = troopList.add(troopGenerator({
         'name' : 'Meliodas',
         'team' : 1,
-        'x'    : 1,
-        'y'    : 1
+        'x'    : 19,
+        'y'    : 9,
+        'color': 'blue'
     }));
+
+    map.init();
+    map.drawTroop(gil.getX(), gil.getY(), gil.getColor());
+    map.drawTroop(mel.getX(), mel.getY(), mel.getColor());
 
     var hasTurn = true;
 
@@ -26,7 +39,4 @@ require(['module/engine', 'module/troopList', 'module/troopGenerator', 'module/m
     }
 
     engine.log('<b>End of Batttle<b/>');
-    
-    map.init();
-    map.simulate();
 });

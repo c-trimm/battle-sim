@@ -1,1 +1,1 @@
-Not much to see here, yet.
+Check the wiki for more info.
