@@ -11,20 +11,22 @@ require.config({
     }
 });
 
-require(['module/engine', 'module/troopList', 'module/troopGenerator', 'module/map'], function(engine, troopList, troopGenerator, map) {
-    var gil = troopList.add(troopGenerator({
+require(['module/engine', 'module/troopList', 'module/troopFactory', 'module/map'], function(engine, troopList, troopFactory, map) {
+    var gil = troopList.add(troopFactory({
         'name' : 'Gilthunder',
         'team' : 0,
         'x'    : 0,
         'y'    : 0,
+        'range': 1,
         'color': 'red'
     }));
 
-    var mel = troopList.add(troopGenerator({
+    var mel = troopList.add(troopFactory({
         'name' : 'Meliodas',
         'team' : 1,
         'x'    : 19,
         'y'    : 9,
+        'range': 3,
         'color': 'blue'
     }));
 
@@ -38,5 +40,5 @@ require(['module/engine', 'module/troopList', 'module/troopGenerator', 'module/m
         hasTurn = engine.turn();
     }
 
-    engine.log('<b>End of Batttle<b/>');
+    engine.log('<br/><b>End of Batttle<b/>');
 });
